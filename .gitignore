@@ -2,7 +2,8 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 node_modules
-*/node_modules/
+**/node_modules/
+**/__pycache__/
 *.py[cod]
 *$py.class
 
