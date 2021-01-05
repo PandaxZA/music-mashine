@@ -1,6 +1,8 @@
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+node_modules
+*/node_modules/
 *.py[cod]
 *$py.class
 
@@ -137,3 +139,5 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+/frontend/node_modules/
+.node
