@@ -1,9 +1,9 @@
 from django.db.models.query import QuerySet
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import Room
-from django.shortcuts import render
 from rest_framework import generics, status
+from django.shortcuts import render
+from .models import Room
 from .serializers import RoomSerializer, CreateRoomSerializer
 
 # Create your views here.
