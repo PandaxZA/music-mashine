@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Button,
   Grid,
@@ -9,8 +9,8 @@ import {
   Radio,
   RadioGroup,
   FormControlLabel,
-} from "@material-ui/core";
-import { Link } from "react-router-dom";
+} from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 export default class CreateRoomPage extends Component {
   defaultVotes = 2;
@@ -33,22 +33,22 @@ export default class CreateRoomPage extends Component {
 
   handleGuestCanPauseChange(e) {
     this.setState({
-      guestCanPause: e.target.value === "true" ? true : false,
+      guestCanPause: e.target.value === 'true' ? true : false,
     });
   }
 
   handleRoomCreateButton() {
     const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         votes_to_skip: this.state.votesToSkip,
         guest_can_pause: this.state.guestCanPause,
       }),
     };
-    fetch("/api/create-room", requestOptions)
+    fetch('/api/create-room', requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => this.props.history.push('/room/' + data.code));
   }
 
   render() {
@@ -86,7 +86,7 @@ export default class CreateRoomPage extends Component {
               required={true}
               type="number"
               defaultValue={this.defaultVotes}
-              inputProps={{ min: 1, style: { textAlign: "center" } }}
+              inputProps={{ min: 1, style: { textAlign: 'center' } }}
               onChange={this.handleVotesChange}
             ></TextField>
             <FormHelperText>
