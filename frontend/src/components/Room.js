@@ -31,7 +31,7 @@ export default class Room extends Component {
       })
       .then((data) => {
         this.setState({
-          vodesToSkip: data.votes_to_skip,
+          votesToSkip: data.votes_to_skip,
           guestCanPause: data.guest_can_pause,
           isHost: data.is_host,
         });
@@ -64,7 +64,7 @@ export default class Room extends Component {
             votesToSkip={this.state.votesToSkip}
             guestCanPause={this.state.guestCanPause}
             roomCode={this.roomCode}
-            updateCallBack={() => {}}
+            updateCallback={this.getRoomDetails}
           ></CreateRoomPage>
         </Grid>
         <Grid item xs={12} align="center">
