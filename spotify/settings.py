@@ -1,10 +1,10 @@
-import environ
+import os
+from dotenv import load_dotenv
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
+load_dotenv()
 
-REDIRECT_URL = env("REDEIRECT_URL")
-CLIENT_SECRET = env("CLIENT_SECRET")
-CLIENT_ID = env("CLIENT_ID")
+
+DEBUG = os.getenv("DEBUG")
+REDIRECT_URI = os.getenv("REDIRECT_URI")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+CLIENT_ID = os.getenv("CLIENT_ID")
