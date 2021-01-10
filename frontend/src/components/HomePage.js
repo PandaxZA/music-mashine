@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import RoomJoinPage from './RoomJoinPage';
-import CreateRoomPage from './CreateRoomPage';
-import { Grid, Button, ButtonGroup, Typography } from '@material-ui/core';
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
-import Room from './Room';
+import React, { Component } from "react";
+import RoomJoinPage from "./RoomJoinPage";
+import CreateRoomPage from "./CreateRoomPage";
+import { Grid, Button, ButtonGroup, Typography } from "@material-ui/core";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+import Room from "./Room";
+import Info from "./Info";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export default class HomePage extends Component {
   }
 
   async componentDidMount() {
-    fetch('/api/user-in-room')
+    fetch("/api/user-in-room")
       .then((response) => response.json())
       .then((data) => {
         this.setState({ roomCode: data.code });
@@ -34,6 +35,9 @@ export default class HomePage extends Component {
           <ButtonGroup disableElevation variant="contained" color="primary">
             <Button color="primary" to="/join" component={Link}>
               Join a Room
+            </Button>
+            <Button color="default" to="/info" component={Link}>
+              Info
             </Button>
             <Button color="secondary" to="/create" component={Link}>
               Create a Room
@@ -66,6 +70,7 @@ export default class HomePage extends Component {
             }}
           ></Route>
           <Route path="/join" component={RoomJoinPage}></Route>
+          <Route path="/info" component={Info}></Route>
           <Route path="/create" component={CreateRoomPage}></Route>
           <Route
             path="/room/:roomCode"
